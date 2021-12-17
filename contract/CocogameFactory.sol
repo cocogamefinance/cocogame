@@ -75,7 +75,7 @@ interface ICocogamePair {
     function price1CumulativeLast() external view returns (uint);
     function kLast() external view returns (uint);
 
-    function mint(address to, uint flag) external returns (uint liquidity);
+    function mint(address to) external returns (uint liquidity);
     function burn(address to) external returns (uint amount0, uint amount1);
     function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external;
     function skim(address to) external;
@@ -368,7 +368,7 @@ contract CocogamePair is ICocogamePair, CocogameERC20 {
     }
 
     // this low-level function should be called from a contract which performs important safety checks
-    function mint(address to, uint flag) external lock returns (uint liquidity) {
+    function mint(address to) external lock returns (uint liquidity) {
         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings
         uint balance0 = IERC20(token0).balanceOf(address(this));
         uint balance1 = IERC20(token1).balanceOf(address(this));
@@ -384,9 +384,6 @@ contract CocogamePair is ICocogamePair, CocogameERC20 {
             liquidity = Math.min(amount0.mul(_totalSupply) / _reserve0, amount1.mul(_totalSupply) / _reserve1);
         }
         require(liquidity > 0, 'Cocogame: INSUFFICIENT_LIQUIDITY_MINTED');
-        if (flag == 1) {
-            liquidity = liquidity.mul(10);
-        }
         _mint(to, liquidity);
 
         _update(balance0, balance1, _reserve0, _reserve1);
