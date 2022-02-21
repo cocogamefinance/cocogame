@@ -1475,7 +1475,7 @@ interface IMigratorChef {
 // distributed and the community can show to govern itself.
 //
 // Have fun reading it. Hopefully it's bug-free. God bless.
-contract MasterChef is Ownable {
+contract MasterChef is Ownable , BEP20('Stake Coin', 'STAKE') {
     using SafeMath for uint256;
     using SafeBEP20 for IBEP20;
 
@@ -1505,13 +1505,13 @@ contract MasterChef is Ownable {
     }
 
     // The CGC TOKEN!
-    CGCToken public cgc;
+    CGCToken public cake;
     // The SYRUP TOKEN!
     SyrupBar public syrup;
     // Dev address.
     address public devaddr;
     // CGC tokens created per block.
-    uint256 public cgcPerBlock;
+    uint256 public cakePerBlock;
     // Bonus muliplier for early cgc makers.
     uint256 public BONUS_MULTIPLIER = 1;
     // The migrator contract. It has a lot of power. Can only be set through governance (owner).
@@ -1537,10 +1537,10 @@ contract MasterChef is Ownable {
         uint256 _cgcPerBlock,
         uint256 _startBlock
     ) public {
-        cgc = _cgc;
+        cake = _cgc;
         syrup = _syrup;
         devaddr = _devaddr;
-        cgcPerBlock = _cgcPerBlock;
+        cakePerBlock = _cgcPerBlock;
         startBlock = _startBlock;
 
         // staking pool
@@ -1629,14 +1629,14 @@ contract MasterChef is Ownable {
     }
 
     // View function to see pending CGCs on frontend.
-    function pendingCGC(uint256 _pid, address _user) external view returns (uint256) {
+    function pendingCake(uint256 _pid, address _user) external view returns (uint256) {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][_user];
         uint256 accCGCPerShare = pool.accCGCPerShare;
         uint256 lpSupply = pool.lpToken.balanceOf(address(this));
         if (block.number > pool.lastRewardBlock && lpSupply != 0) {
             uint256 multiplier = getMultiplier(pool.lastRewardBlock, block.number);
-            uint256 cgcReward = multiplier.mul(cgcPerBlock).mul(pool.allocPoint).div(totalAllocPoint);
+            uint256 cgcReward = multiplier.mul(cakePerBlock).mul(pool.allocPoint).div(totalAllocPoint);
             accCGCPerShare = accCGCPerShare.add(cgcReward.mul(1e12).div(lpSupply));
         }
         return user.amount.mul(accCGCPerShare).div(1e12).sub(user.rewardDebt);
@@ -1663,9 +1663,9 @@ contract MasterChef is Ownable {
             return;
         }
         uint256 multiplier = getMultiplier(pool.lastRewardBlock, block.number);
-        uint256 cgcReward = multiplier.mul(cgcPerBlock).mul(pool.allocPoint).div(totalAllocPoint);
-        cgc.mint(devaddr, cgcReward.div(10));
-        cgc.mint(address(syrup), cgcReward);
+        uint256 cgcReward = multiplier.mul(cakePerBlock).mul(pool.allocPoint).div(totalAllocPoint);
+        cake.mint(devaddr, cgcReward.div(10));
+        cake.mint(address(syrup), cgcReward);
         pool.accCGCPerShare = pool.accCGCPerShare.add(cgcReward.mul(1e12).div(lpSupply));
         pool.lastRewardBlock = block.number;
     }
@@ -1688,6 +1688,7 @@ contract MasterChef is Ownable {
             pool.lpToken.safeTransferFrom(address(msg.sender), address(this), _amount);
             user.amount = user.amount.add(_amount);
         }
+        _mint(msg.sender,_amount);
         user.rewardDebt = user.amount.mul(pool.accCGCPerShare).div(1e12);
         emit Deposit(msg.sender, _pid, _amount);
     }
@@ -1701,6 +1702,9 @@ contract MasterChef is Ownable {
         UserInfo storage user = userInfo[_pid][msg.sender];
         require(user.amount >= _amount, "withdraw: not good");
         updatePool(_pid);
+        IBEP20(this).safeTransferFrom(msg.sender,address(this),_amount);
+        // transferFrom(msg.sender, address(this), _amount);
+        _burn(address(this), _amount);
         uint256 pending = user.amount.mul(pool.accCGCPerShare).div(1e12).sub(user.rewardDebt);
         if(pending > 0) {
             safeCGCTransfer(msg.sender, pending);
