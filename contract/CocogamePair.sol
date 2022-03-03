@@ -8,7 +8,7 @@
 
 // File: contracts\interfaces\ICocogamePair.sol
 
-pragma solidity >=0.5.0;
+pragma solidity ^0.5.0 <0.6.12;
 
 interface ICocogamePair {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -63,7 +63,7 @@ interface ICocogamePair {
 
 // File: contracts\interfaces\ICocogameERC20.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.5.0 <0.6.12;
 
 interface ICocogameERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -89,7 +89,7 @@ interface ICocogameERC20 {
 
 // File: contracts\libraries\SafeMath.sol
 
-pragma solidity =0.5.16;
+pragma solidity ^0.5.16 <0.6.12;
 
 // a library for performing overflow-safe math, courtesy of DappHub (https://github.com/dapphub/ds-math)
 
@@ -109,7 +109,7 @@ library SafeMath {
 
 // File: contracts\CocogameERC20.sol
 
-pragma solidity =0.5.16;
+pragma solidity ^0.5.16 <0.6.12;
 
 
 contract CocogameERC20 is ICocogameERC20 {
@@ -204,7 +204,7 @@ contract CocogameERC20 is ICocogameERC20 {
 
 // File: contracts\libraries\Math.sol
 
-pragma solidity =0.5.16;
+pragma solidity ^0.5.16 <0.6.12;
 
 // a library for performing various math operations
 
@@ -230,7 +230,7 @@ library Math {
 
 // File: contracts\libraries\UQ112x112.sol
 
-pragma solidity =0.5.16;
+pragma solidity ^0.5.16 <0.6.12;
 
 // a library for handling binary fixed point numbers (https://en.wikipedia.org/wiki/Q_(number_format))
 
@@ -253,7 +253,7 @@ library UQ112x112 {
 
 // File: contracts\interfaces\IERC20.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.5.0 <0.6.12;
 
 interface IERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -273,7 +273,7 @@ interface IERC20 {
 
 // File: contracts\interfaces\ICocogameFactory.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.5.0 <0.6.12;
 
 interface ICocogameFactory {
     event PairCreated(address indexed token0, address indexed token1, address pair, uint);
@@ -293,7 +293,7 @@ interface ICocogameFactory {
 
 // File: contracts\interfaces\ICocogameCallee.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.5.0 <0.6.12;
 
 interface ICocogameCallee {
     function cocogameCall(address sender, uint amount0, uint amount1, bytes calldata data) external;
@@ -301,7 +301,7 @@ interface ICocogameCallee {
 
 // File: contracts\CocogamePair.sol
 
-pragma solidity =0.5.16;
+pragma solidity ^0.5.16 <0.6.12;
 
 
 

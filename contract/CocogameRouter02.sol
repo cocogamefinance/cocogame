@@ -1,5 +1,5 @@
 
-pragma solidity >=0.6.0;
+pragma solidity >=0.6.0 <0.7.0;
 
 // helper methods for interacting with ERC20 tokens and sending ETH that do not consistently return true/false
 library TransferHelper {
@@ -29,7 +29,7 @@ library TransferHelper {
 
 // File: contracts\interfaces\ICocogameRouter01.sol
 
-pragma solidity >=0.6.2;
+pragma solidity >=0.6.2 <0.7.0;
 
 interface ICocogameRouter01 {
     function factory() external pure returns (address);
@@ -127,7 +127,7 @@ interface ICocogameRouter01 {
 
 // File: contracts\interfaces\ICocogameRouter02.sol
 
-pragma solidity >=0.6.2;
+pragma solidity >=0.6.2 <0.7.0;
 
 interface ICocogameRouter02 is ICocogameRouter01 {
     function removeLiquidityETHSupportingFeeOnTransferTokens(
@@ -172,7 +172,7 @@ interface ICocogameRouter02 is ICocogameRouter01 {
 
 // File: contracts\interfaces\ICocogameFactory.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.5.0 <0.7.0;
 
 interface ICocogameFactory {
     event PairCreated(address indexed token0, address indexed token1, address pair, uint);
@@ -194,7 +194,7 @@ interface ICocogameFactory {
 
 // File: contracts\libraries\SafeMath.sol
 
-pragma solidity =0.6.12;
+pragma solidity >=0.6.12 <0.7.0;
 
 // a library for performing overflow-safe math, courtesy of DappHub (https://github.com/dapphub/ds-math)
 
@@ -214,7 +214,7 @@ library SafeMath {
 
 // File: contracts\interfaces\ICocogamePair.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.5.0 <0.7.0;
 
 interface ICocogamePair {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -269,7 +269,7 @@ interface ICocogamePair {
 
 // File: contracts\libraries\CocogameLibrary.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.5.0 <0.7.0;
 
 
 
@@ -353,7 +353,7 @@ library CocogameLibrary {
 
 // File: contracts\interfaces\IERC20.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.5.0 <0.7.0;
 
 interface IERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -373,7 +373,7 @@ interface IERC20 {
 
 // File: contracts\interfaces\IWETH.sol
 
-pragma solidity >=0.5.0;
+pragma solidity >=0.5.0 <0.7.0;
 
 interface IWETH {
     function deposit() external payable;
@@ -483,7 +483,7 @@ contract Ownable is Context {
 
 // File: contracts\CocogameRouter.sol
 
-pragma solidity =0.6.12;
+pragma solidity =0.6.12 <0.7.0;
 
 contract CocogameRouter is Context,ICocogameRouter02,Ownable {
     using SafeMath for uint;

@@ -339,11 +339,11 @@ contract MasterChef is Ownable {
     }
     
     uint256 public rewardForEachBlock = 20000000 * 10 ** 18 ;    //Reward for each block
-    uint256 lastRewardBlock;  // Last block number that SUSHIs distribution occurs.
-    uint256 accSushiPerShare ; // Accumulated SUSHIs per share, times 1e12. See below.
-    uint256 startBlock; // Reward start block.
-    uint256 endBlock;  // Reward end block.
-    uint256 rewardDebt;
+    uint256 public lastRewardBlock;  // Last block number that SUSHIs distribution occurs.
+    uint256 public accSushiPerShare ; // Accumulated SUSHIs per share, times 1e12. See below.
+    uint256 public startBlock; // Reward start block.
+    uint256 public endBlock;  // Reward end block.
+    uint256  private rewardDebt;
     // address public precipitation;
     
     uint256 public rewardTokenStakeTotalSupply=0;
@@ -356,7 +356,7 @@ contract MasterChef is Ownable {
     IERC20 public stakeToken;
     IERC20 public rewardToken;
 
-    address[]   stakers;
+    address[]  private stakers;
     
     mapping(address =>bool) public admin;
     mapping(address => uint) public stakingBalance;
