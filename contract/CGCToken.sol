@@ -748,6 +748,10 @@ contract BEP20 is Context, IBEP20, Ownable {
      * - `msg.sender` must be the token owner
      */
     function mint(uint256 amount) public onlyOwner returns (bool) {
+        
+        uint256  WEI = 2 * 1e26;
+        uint256 total = totalSupply().add(amount);
+        require(total <= WEI,"The number of mint exceeds the upper limit！");
         _mint(_msgSender(), amount);
         return true;
     }
@@ -862,15 +866,9 @@ contract CGCToken is BEP20('Coco Game Coin', 'CGC') {
     /// @notice Creates `_amount` token to `_to`. Must only be called by the owner (MasterChef).
     function mint(address _to, uint256 _amount) public onlyOwner {
         uint256 total = totalSupply().add(_amount);
-        if (total >= WEI){
-            uint256 new_amount = WEI.sub(totalSupply());
-            _mint(_to, new_amount);
-            _moveDelegates(address(0), _delegates[_to], new_amount);
-        }else{
-            _mint(_to, _amount);
-            _moveDelegates(address(0), _delegates[_to], _amount);
-        }
-        
+        require(total <= WEI,"The number of mint exceeds the upper limit！");
+        _mint(_to, _amount);
+        _moveDelegates(address(0), _delegates[_to], _amount);
     }
 
     // Copied and modified from YAM code:
