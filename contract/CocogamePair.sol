@@ -8,7 +8,7 @@
 
 // File: contracts\interfaces\ICocogamePair.sol
 
-pragma solidity ^0.5.0 <0.6.12;
+pragma solidity 0.5.17;
 
 interface ICocogamePair {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -63,7 +63,7 @@ interface ICocogamePair {
 
 // File: contracts\interfaces\ICocogameERC20.sol
 
-pragma solidity >=0.5.0 <0.6.12;
+pragma solidity 0.5.17;
 
 interface ICocogameERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -89,7 +89,7 @@ interface ICocogameERC20 {
 
 // File: contracts\libraries\SafeMath.sol
 
-pragma solidity ^0.5.16 <0.6.12;
+pragma solidity 0.5.17;
 
 // a library for performing overflow-safe math, courtesy of DappHub (https://github.com/dapphub/ds-math)
 
@@ -109,7 +109,7 @@ library SafeMath {
 
 // File: contracts\CocogameERC20.sol
 
-pragma solidity ^0.5.16 <0.6.12;
+pragma solidity 0.5.17;
 
 
 contract CocogameERC20 is ICocogameERC20 {
@@ -204,7 +204,7 @@ contract CocogameERC20 is ICocogameERC20 {
 
 // File: contracts\libraries\Math.sol
 
-pragma solidity ^0.5.16 <0.6.12;
+pragma solidity 0.5.17;
 
 // a library for performing various math operations
 
@@ -230,7 +230,7 @@ library Math {
 
 // File: contracts\libraries\UQ112x112.sol
 
-pragma solidity ^0.5.16 <0.6.12;
+pragma solidity 0.5.17;
 
 // a library for handling binary fixed point numbers (https://en.wikipedia.org/wiki/Q_(number_format))
 
@@ -253,7 +253,7 @@ library UQ112x112 {
 
 // File: contracts\interfaces\IERC20.sol
 
-pragma solidity >=0.5.0 <0.6.12;
+pragma solidity 0.5.17;
 
 interface IERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -272,8 +272,7 @@ interface IERC20 {
 }
 
 // File: contracts\interfaces\ICocogameFactory.sol
-
-pragma solidity >=0.5.0 <0.6.12;
+pragma solidity 0.5.17;
 
 interface ICocogameFactory {
     event PairCreated(address indexed token0, address indexed token1, address pair, uint);
@@ -293,21 +292,15 @@ interface ICocogameFactory {
 
 // File: contracts\interfaces\ICocogameCallee.sol
 
-pragma solidity >=0.5.0 <0.6.12;
+pragma solidity 0.5.17;
 
 interface ICocogameCallee {
-    function cocogameCall(address sender, uint amount0, uint amount1, bytes calldata data) external;
+    function pancakeCall(address sender, uint amount0, uint amount1, bytes calldata data) external;
 }
 
 // File: contracts\CocogamePair.sol
 
-pragma solidity ^0.5.16 <0.6.12;
-
-
-
-
-
-
+pragma solidity 0.5.17;
 
 contract CocogamePair is ICocogamePair, CocogameERC20 {
     using SafeMath  for uint;
@@ -473,7 +466,7 @@ contract CocogamePair is ICocogamePair, CocogameERC20 {
             require(to != _token0 && to != _token1, 'Cocogame: INVALID_TO');
             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens
             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens
-            if (data.length > 0) ICocogameCallee(to).cocogameCall(msg.sender, amount0Out, amount1Out, data);
+            if (data.length > 0) ICocogameCallee(to).pancakeCall(msg.sender, amount0Out, amount1Out, data);
             balance0 = IERC20(_token0).balanceOf(address(this));
             balance1 = IERC20(_token1).balanceOf(address(this));
         }

