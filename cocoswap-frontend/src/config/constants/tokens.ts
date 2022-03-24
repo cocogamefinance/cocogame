@@ -21,31 +21,20 @@ export const mainnetTokens = {
     'Wrapped BNB',
     'https://www.binance.com/',
   ),
-  // 新加 pid = 2 的对应关系 zpq
-  'BTC-TEST': new Token(
-    MAINNET,
-    '0x889d77f34b43E4f33a5EbD68a029FC2af780a863',
-    18,
-    'BTC-TEST',
-    'BTC Coin',
-    'https://www.binance.com/',
-  ),
-
-  // 钱包  读取 cgc 余额
   cgc: new Token(
     MAINNET,
-    '0x39b719Fea96275b7504BeeDAA7BCa813e2E89992',
+    '0xd2A65E9D9F06B26b04edF099226129Df53B47158',
     18,
     'CGC',
-    'CocoSwap Token',
-    'https://cocoswap.finance/',
+    'CocoGame Coin',
+    'https://cocodao.net/',
   ),
 
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
   cake: new Token(
     MAINNET,
-    '0x39b719Fea96275b7504BeeDAA7BCa813e2E89992',
+    '0xd2A65E9D9F06B26b04edF099226129Df53B47158',
     18,
     'CAKE',
     'PancakeSwap Token',
@@ -233,7 +222,7 @@ export const mainnetTokens = {
   ),
   syrup: new Token(
     MAINNET,
-    '0x46599326Ede519E5C8a48929274B926495aa1E30',
+    '0xf2d601e289886FADeaC54Edca6a4EF9FA001aD1E',
     18,
     'SYRUP',
     'SyrupBar Token',
@@ -1797,11 +1786,11 @@ export const testnetTokens = {
     'Wrapped BNB',
     'https://www.binance.com/',
   ),
-  cake: new Token(
+  cgc: new Token(
     TESTNET,
     '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
     18,
-    'CAKE',
+    'CGC',
     'PancakeSwap Token',
     'https://pancakeswap.finance/',
   ),

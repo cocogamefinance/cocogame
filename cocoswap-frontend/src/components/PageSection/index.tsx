@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BoxProps, Box, Flex, FlexProps } from '@pancakeswap/uikit'
+import {BoxProps, Box, Flex, FlexProps} from '@pancakeswap/uikit'
 import Container from 'components/Layout/Container'
 import CurvedDivider from './CurvedDivider'
-import { ClipFill, DividerFill } from './types'
+import {ClipFill, DividerFill} from './types'
 import bg from './svg/bh.png'
 
 interface PageSectionProps extends BackgroundColorProps {
@@ -28,9 +28,10 @@ const BackgroundColor = styled(Flex)<BackgroundColorProps>`
   position: relative;
   flex-direction: column;
   align-items: center;
-  z-index: ${({ index }) => index - 1};
-  padding: ${({ getPadding }) => getPadding()};
-  background-image:url(${bg})
+  z-index: ${({index}) => index - 1};
+  padding: ${({getPadding}) => getPadding()};
+  background-image: url(${bg});
+  background-size: cover;
 `
 
 const ChildrenWrapper = styled(Container)`
@@ -38,12 +39,12 @@ const ChildrenWrapper = styled(Container)`
   padding-top: 16px;
   padding-bottom: 16px;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({theme}) => theme.mediaQueries.sm} {
     padding-top: 32px;
     padding-bottom: 32px;
   }
 
-  ${({ theme }) => theme.mediaQueries.lg} {
+  ${({theme}) => theme.mediaQueries.lg} {
     padding-top: 48px;
     padding-bottom: 48px;
   }

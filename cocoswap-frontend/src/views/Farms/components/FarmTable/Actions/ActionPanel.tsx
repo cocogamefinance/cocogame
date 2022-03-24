@@ -164,8 +164,6 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
           </StakeContainer>
         )}
         <LinkExternal href={bsc}>{t('View Contract')}</LinkExternal>
-        {/* 农场列表 行展开 查看货币对信息 链接隐藏  zpq */}
-        {/* <LinkExternal href={info} >{t('See Pair Info')}</LinkExternal> */}
         <TagsContainer>
           {farm.isCommunity ? <CommunityTag /> : <CoreTag />}
           {dual ? <DualTag /> : null}

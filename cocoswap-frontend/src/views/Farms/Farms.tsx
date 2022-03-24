@@ -372,15 +372,6 @@ const Farms: React.FC = () => {
         <Heading scale="lg" color="text" style={{color:"#D080A0"}}>
           {t('Stake LP tokens to earn.')}
         </Heading>
-        {/* 农场 社区拍卖 按钮跳转链接 zpq */}
-        {/* <NavLink exact activeClassName="active" to="/farms/auction" id="lottery-pot-banner">
-          <Button p="0" variant="text">
-            <Text color="primary" bold fontSize="16px" mr="4px"  style={{color:'#7165B0'}}>
-              {t('Community Auctions')}
-            </Text>
-            <ArrowForwardIcon color="#7165B0"  style={{color:'#7165B0'}}/>
-          </Button>
-        </NavLink> */}
       </PageHeader>
       <Page>
         <ControlContainer>

@@ -23,17 +23,17 @@ const artistConfigBuilder = ({ t, isDark }: ArtistConfigType) => ({
   ],
   buttons: [
     {
-      to: 'https://twitter.com/cecymeade',
+      to: 'https://twitter.com/@finance_coco',
       text: t('Follow on Twitter'),
       external: true,
       icon: <TwitterIcon fillColor="white" />,
     },
-    {
-      to: 'https://www.instagram.com/cecymeade/',
-      text: t('Follow on Instagram'),
-      external: true,
-      icon: <InstagramIcon color="white" />,
-    },
+    // {
+    //   to: 'https://www.instagram.com/cecymeade/',
+    //   text: t('Follow on Instagram'),
+    //   external: true,
+    //   icon: <InstagramIcon color="white" />,
+    // },
   ],
   image: { src: `/images/pancakeSquad/artist${isDark ? '-dark' : ''}.png`, alt: 'Chef Cecy bio' },
 })

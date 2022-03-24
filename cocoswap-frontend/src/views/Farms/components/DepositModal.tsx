@@ -120,19 +120,6 @@ const DepositModal: React.FC<DepositModalProps> = ({
         addLiquidityUrl={addLiquidityUrl}
         inputTitle={t('Stake')}
       />
-      {/* 农场 质押 LP 代币弹窗  当前汇率下的年度投资回报率隐藏 zpq */}
-      {/* <Flex mt="24px" alignItems="center" justifyContent="space-between">
-        <Text mr="8px" color="textSubtle">
-          {t('Annual ROI at current rates')}:
-        </Text>
-        <AnnualRoiContainer alignItems="center" onClick={() => setShowRoiCalculator(true)}>
-          <AnnualRoiDisplay>${formattedAnnualRoi}</AnnualRoiDisplay>
-          <IconButton variant="text" scale="sm">
-            <CalculateIcon color="textSubtle" width="18px" />
-          </IconButton>
-        </AnnualRoiContainer>
-      </Flex> */}
-
       <ModalActions>
         <Button variant="secondary" onClick={onDismiss} width="100%" disabled={pendingTx} className='cocoButton7166B0NoBorder'>
           {t('Cancel')}

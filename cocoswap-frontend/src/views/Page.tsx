@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex } from '@pancakeswap/uikit'
+import {Flex} from '@pancakeswap/uikit'
 import Footer from 'components/Menu/Footer'
-import { PageMeta } from 'components/Layout/Page'
+import {PageMeta} from 'components/Layout/Page'
 
 const StyledPage = styled.div`
   display: flex;
@@ -12,24 +12,20 @@ const StyledPage = styled.div`
   padding: 16px;
   padding-bottom: 0;
   min-height: calc(100vh - 64px);
-  // background:  url(/images/mImg/blg.png)
+  background-size: cover;
 
-  ${({ theme }) => theme.mediaQueries.xs} {
-    background-size: auto;
-  }
-
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({theme}) => theme.mediaQueries.sm} {
     padding: 24px;
     padding-bottom: 0;
   }
 
-  ${({ theme }) => theme.mediaQueries.lg} {
+  ${({theme}) => theme.mediaQueries.lg} {
     padding-top: 32px;
     min-height: calc(100vh - 64px);
   }
 `
 
-const Page: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => {
+const Page: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({children, ...props}) => {
   return (
     <>
       <PageMeta />

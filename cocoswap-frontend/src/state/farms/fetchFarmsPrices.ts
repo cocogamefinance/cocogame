@@ -86,8 +86,7 @@ const getFarmQuoteTokenPrice = (
 }
 
 const fetchFarmsPrices = async (farms: SerializedFarm[]) => {
-  // 右上角 币实时价格 zpq
-  const bnbBusdFarm = farms.find((farm) => farm.pid === 1)
+  const bnbBusdFarm = farms.find((farm) => farm.pid === 251)
   const bnbPriceBusd = bnbBusdFarm.tokenPriceVsQuote ? BIG_ONE.div(bnbBusdFarm.tokenPriceVsQuote) : BIG_ZERO
 
   const farmsWithPrices = farms.map((farm) => {

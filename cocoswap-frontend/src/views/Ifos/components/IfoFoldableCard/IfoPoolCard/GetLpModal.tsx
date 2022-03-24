@@ -25,11 +25,11 @@ const GetLpModal: React.FC<Partial<Props>> = ({ currency, onDismiss }) => {
         <Button
           as={Link}
           external
-          href="/swap?outputCurrency=0x39b719Fea96275b7504BeeDAA7BCa813e2E89992"
+          href="/swap?outputCurrency=0xd2A65E9D9F06B26b04edF099226129Df53B47158"
           endIcon={<OpenNewIcon color="white" />}
           minWidth="100%" // Bypass the width="fit-content" on Links
         >
-          {t('Get %symbol%', { symbol: 'CAKE' })}
+          {t('Get %symbol%', { symbol: 'CGC' })}
         </Button>
       </ModalBody>
     </Modal>
