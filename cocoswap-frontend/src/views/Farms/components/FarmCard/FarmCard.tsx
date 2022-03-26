@@ -77,7 +77,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
         />
         {!removed && (
           <Flex justifyContent="space-between" alignItems="center">
-            <Text>{t('APR')}:</Text>
+            {/* <Text>{t('APR')}:</Text>
             <Text bold style={{ display: 'flex', alignItems: 'center' }}>
               {farm.apr ? (
                 <ApyButton
@@ -94,12 +94,12 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
               ) : (
                 <Skeleton height={24} width={80} />
               )}
-            </Text>
+            </Text> */}
           </Flex>
         )}
         <Flex justifyContent="space-between">
-          <Text>{t('Earn')}:</Text>
-          <Text bold>{earnLabel}</Text>
+          {/* <Text>{t('Earn')}:</Text>
+          <Text bold>{earnLabel}</Text> */}
         </Flex>
         <CardActionsContainer
           farm={farm}

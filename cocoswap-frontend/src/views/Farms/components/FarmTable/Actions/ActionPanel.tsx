@@ -171,16 +171,16 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
       </InfoContainer>
       <ValueContainer>
         <ValueWrapper>
-          <Text>{t('APR')}</Text>
-          <Apr {...apr} />
+          {/* <Text>{t('APR')}</Text>
+          <Apr {...apr} /> */}
         </ValueWrapper>
         <ValueWrapper>
           <Text>{t('Multiplier')}</Text>
           <Multiplier {...multiplier} />
         </ValueWrapper>
         <ValueWrapper>
-          <Text>{t('Liquidity')}</Text>
-          <Liquidity {...liquidity} />
+          {/* <Text>{t('Liquidity')}</Text>
+          <Liquidity {...liquidity} /> */}
         </ValueWrapper>
       </ValueContainer>
       <ActionContainer>
