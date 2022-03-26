@@ -120,6 +120,7 @@
   "Total jackpot this round": "此回合的总累积奖池",
   "Collect Winnings": "收集奖金",
   "Buy Tickets": "购买彩票",
+  "Auth": "授权",
   "Harvest": "收割",
   "Select": "选择",
   "Winning Numbers This Round": "此回合的中奖号码",
@@ -179,6 +180,7 @@
   "Trade": "交易",
   "Farms": "农场",
   "Pools": "糖浆池",
+  "pool": "矿池",
   "NFT": "NFT",
   "Info": "信息",
   "IFO": "IFO",
@@ -1752,5 +1754,9 @@
   "Unwrap": "解包",
   "Go to IFO": "转到 IFO",
   "Phishing warning: ": "钓鱼警告：",
-  "please make sure you're visiting https://cocodao.net - check the URL carefully.": "请确保您访问的是 https://cocodao.net - 请仔细检查网址。"
+  "please make sure you're visiting https://cocodao.net - check the URL carefully.": "请确保您访问的是 https://cocodao.net - 请仔细检查网址。",
+  
+
+
+
 }

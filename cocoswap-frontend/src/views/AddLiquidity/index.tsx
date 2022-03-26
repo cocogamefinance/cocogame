@@ -328,7 +328,7 @@ export default function AddLiquidity({
         />
         <CardBody>
           <AutoColumn gap="20px">
-            {noLiquidity && (
+            {/* {noLiquidity && (
               <ColumnCenter>
                 <Message variant="warning">
                   <div>
@@ -340,7 +340,7 @@ export default function AddLiquidity({
                   </div>
                 </Message>
               </ColumnCenter>
-            )}
+            )} */}
             <CurrencyInputPanel
               value={formattedAmounts[Field.CURRENCY_A]}
               onUserInput={onFieldAInput}

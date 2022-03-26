@@ -78,7 +78,7 @@ const MenuItems = ({items = [], activeItem, activeSubItem, ...props}) => {
         return (
           <DropdownMenu key={`${label}#${href}#${icon}`} items={menuItems} activeItem={activeSubItem}>
             <MenuItem {...linkProps} isActive={isActive} statusColor={statusColor}>
-              <span className="colorD53B79">{label}</span>
+              <span className="colorD53B79" style={{width:'41px', display:'block', marginLeft: '-5px', marginRight: '-10px'}}>{label}</span>
             </MenuItem>
           </DropdownMenu>
         )
@@ -152,13 +152,16 @@ const UikitMenu = ({
         {banner && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>}
         <StyledNav>
           <Flex>
-            <StyledLink to="/">
+            <StyledLink to="/" style={{width: isMobile ? '25px' : '', marginTop: isMobile ? '10px' : ''}}>
               {!isMobile && (
                 <Image src={isDark ? '/images/mImg/bsss.png' : '/images/mImg/lo.png'} width={160} height={34} />
               )}
               {isMobile && <Image src="/images/mImg/uuu.png" width={30} height={30} />}
             </StyledLink>
             {/* <Logo isDark={isDark} href={homeLink?.href ?? "/"} /> */}
+            {isMobile && <MenuItems 
+            style={{width: isMobile ? '25px' : '', marginLeft: isMobile ? '10px' : ''}}
+            items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="48px" />}
             {!isMobile && <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="24px" />}
           </Flex>
           <Flex alignItems="center">

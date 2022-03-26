@@ -32,7 +32,7 @@ const farms: SerializedFarmConfig[] = [
       56: '0x5B16E108a1b25bEA6d10250E00a89aa2Df4F8A6F',
     },
     token: serializedTokens.cgc,
-    quoteToken: serializedTokens.bnb,
+    quoteToken: serializedTokens.wbnb,
   }
 ]
 export default farms

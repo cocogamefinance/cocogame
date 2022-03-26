@@ -57,7 +57,7 @@ export const footerLinks: (t: ContextApi['t']) => FooterLinkType[] = (t) => [
     items: [
       {
         label: 'Github',
-        href: 'https://github.com/cocogamefinance',
+        href: ' https://github.com/cocogamefinance/cocogame',
       },
       // {
       //   label: t('Documentation'),

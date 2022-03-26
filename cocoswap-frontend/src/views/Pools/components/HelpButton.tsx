@@ -30,14 +30,14 @@ const HelpButton = () => {
   const { t } = useTranslation()
   return (
     <Container>
-      <StyledLink external href="https://docs.pancakeswap.finance/products/syrup-pool/syrup-pool-faq">
+      {/* <StyledLink external href="https://docs.pancakeswap.finance/products/syrup-pool/syrup-pool-faq">
         <Button px={['14px', null, null, null, '20px']} variant="subtle">
           <ButtonText color="backgroundAlt" bold fontSize="16px">
             {t('Help')}
           </ButtonText>
           <HelpIcon color="backgroundAlt" ml={[null, null, null, 0, '6px']} />
         </Button>
-      </StyledLink>
+      </StyledLink> */}
     </Container>
   )
 }

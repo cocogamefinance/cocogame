@@ -40,12 +40,12 @@ export const MobileColumnSchema: ColumnsDefTypes[] = [
     sortable: true,
     label: 'Earned',
   },
-  {
-    id: 3,
-    name: 'apr',
-    sortable: true,
-    label: 'APR',
-  },
+  // {
+  //   id: 3,
+  //   name: 'apr',
+  //   sortable: true,
+  //   label: 'APR',
+  // },
   {
     id: 6,
     name: 'details',
@@ -67,18 +67,18 @@ export const DesktopColumnSchema: ColumnsDefTypes[] = [
     sortable: true,
     label: 'Earned',
   },
-  {
-    id: 3,
-    name: 'apr',
-    sortable: true,
-    label: 'APR',
-  },
-  {
-    id: 4,
-    name: 'liquidity',
-    sortable: true,
-    label: 'Liquidity',
-  },
+  // {
+  //   id: 3,
+  //   name: 'apr',
+  //   sortable: true,
+  //   label: 'APR',
+  // },
+  // {
+  //   id: 4,
+  //   name: 'liquidity',
+  //   sortable: true,
+  //   label: 'Liquidity',
+  // },
   {
     id: 5,
     name: 'multiplier',
